@@ -91,6 +91,7 @@ test_that("We can parse the qualimap cumulative coverage histogram", {
     plots = "qualimap_genome_fraction"
   )
 
+  browser()
   expect_true("plot.qualimap_genome_fraction" %in% colnames(report))
 
   # This plot is already cumulative so instead of calculating the CDF

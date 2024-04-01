@@ -30,7 +30,7 @@ kv_map <- function(l, func, map_keys = FALSE) {
 sanitise_column_name <- function(name) {
   name %>%
     stringr::str_replace_all(pattern = "[- ]", replacement = "_") %>% # Any dividing characters become underscores
-    stringr::str_remove_all(pattern = "[^\\w%_]") %>% # Any special characters bar underscore and % get deleted
+    stringr::str_remove_all(pattern = "[^\\w%_]") %>% # Any special characters except underscore and % get deleted
     stringr::str_to_lower()
 }
 
