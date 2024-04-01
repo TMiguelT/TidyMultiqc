@@ -28,7 +28,7 @@ Suggests:
     ggplot2,
     HistDat
 Config/testthat/edition: 3
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 URL: https://multimeric.github.io/TidyMultiqc/, https://github.com/multimeric/TidyMultiqc, https://cran.r-project.org/package=TidyMultiqc

@@ -7,7 +7,9 @@
 load_multiqc(
   paths,
   plots = NULL,
-  find_metadata = function(...) {     list() },
+  find_metadata = function(...) {
+     list()
+ },
   plot_parsers = list(),
   sections = "general"
 )
