@@ -87,7 +87,7 @@ parse_bar_graph <- function(plot_data, name) {
       purrr::map(function(cat){
         tibble::as_tibble_col(
           purrr::flatten_dbl(cat$data),
-          # column_name = sanitise_column_name(cat$name)
+          column_name = sanitise_column_name(cat$name)
         )
       }) %>%
       purrr::list_cbind()
@@ -100,7 +100,7 @@ parse_bar_graph <- function(plot_data, name) {
     # And then we slice out each row to become its own list
     seq_along(samples) %>%
       purrr::map(function(sample_idx){
-        df[sample_idx, ] %>% tidyr::nest(., {{ colname }} := tidyr::everything())
+        df[sample_idx, ] %>% tidyr::nest(.key = colname)
       }) %>%
       purrr::set_names(samples) %>%
       `[`(sort(samples))
@@ -125,6 +125,6 @@ parse_bar_graph <- function(plot_data, name) {
       # Then, convert each inner dictionary to a tibble row
       purrr::map(tibble::as_tibble_row) %>%
       # And nest each df so that we only have 1 cell of output per sample
-      purrr::map(~ tidyr::nest(., {{ colname }} := tidyr::everything()))
+      purrr::map(~ tidyr::nest(., .key = colname))
   }
 }

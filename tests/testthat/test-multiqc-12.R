@@ -1,3 +1,15 @@
+test_that("The non-plot data are parsed identically", {
+  old <- system.file("extdata", "wgs", "multiqc_data.json", package = "TidyMultiqc") %>% TidyMultiqc::load_multiqc()
+  new <- system.file("extdata", "1.2_wgs", "multiqc_data.json", package = "TidyMultiqc") %>% TidyMultiqc::load_multiqc()
+  intersect(
+    colnames(old),
+    colnames(new)
+  ) %>%
+    purrr::walk(function(col){
+      testthat::expect_equal(old[, col], new[, col])
+    })
+})
+
 test_that("xy_line plots are parsed identically", {
   old <- system.file("extdata", "wgs", "multiqc_data.json", package = "TidyMultiqc") %>% TidyMultiqc::load_multiqc(sections = "plot", plots = "qualimap_coverage_histogram")
   new <- system.file("extdata", "1.2_wgs", "multiqc_data.json", package = "TidyMultiqc") %>% TidyMultiqc::load_multiqc(sections = "plot", plots = "qualimap_coverage_histogram")
