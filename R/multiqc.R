@@ -6,9 +6,8 @@
 #' instead refer to the documentation website at <https://multimeric.github.io/TidyMultiqc/>, which
 #' provides more accessible documentation.
 #' @importFrom magrittr `%>%`
-#' @docType package
 #' @name TidyMultiqc-package
-NULL
+"_PACKAGE"
 
 # Make R CMD Check hush
 utils::globalVariables(c(".", "metadata.sample_id"))

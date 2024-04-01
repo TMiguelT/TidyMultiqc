@@ -2,6 +2,7 @@
 % Please edit documentation in R/multiqc.R
 \docType{package}
 \name{TidyMultiqc-package}
+\alias{TidyMultiqc}
 \alias{TidyMultiqc-package}
 \title{TidyMultiqc: Converting MultiQC reports into tidy data frames}
 \description{
@@ -11,4 +12,14 @@ into tidy data.frames for downstream analysis in R.
 If you are reading this manual, you should immediately stop reading this and
 instead refer to the documentation website at \url{https://multimeric.github.io/TidyMultiqc/}, which
 provides more accessible documentation.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://multimeric.github.io/TidyMultiqc/}
+  \item \url{https://github.com/multimeric/TidyMultiqc}
+  \item \url{https://cran.r-project.org/package=TidyMultiqc}
+  \item Report bugs at \url{https://github.com/multimeric/TidyMultiqc/issues}
+}
+
 }
