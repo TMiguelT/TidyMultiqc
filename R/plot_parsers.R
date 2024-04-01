@@ -12,7 +12,7 @@ map_datasets <- function(datasets, plot_name){
         purrr::map(~ tibble::tibble_row(x = .[[1]], y = .[[2]])) %>%
         purrr::list_rbind() %>%
         # Chop the multi-row data frame into one row
-        tidyr::nest({{ plot_name }} := tidyr::everything())
+        tidyr::nest(.key = stringr::str_c("plot", plot_name, sep = "."))
     )
   })
 }
@@ -91,9 +91,12 @@ parse_bar_graph <- function(plot_data, name) {
           column_name = sanitise_column_name(cat$name)
         )
       }) %>%
-      purrr::list_cbind() %>%
-      # For compatibility with the old format
-      dplyr::rename(none = unknown)
+      purrr::list_cbind()
+
+    # For compatibility with the old format
+    if ("unknown" %in% colnames(df)){
+      df <- dplyr::rename(df, none = unknown)
+    }
 
     # And then we slice out each row to become its own list
     seq_along(samples) %>%
